@@ -98,8 +98,48 @@ public class StudentController {
 	}
 	
 	
+
+	@GetMapping("/dac")
+	// In HandlerMapping bean :
+	// key : /user/login+method=GET
+	// value : com.app.controller.UserController.showLoginForm
+	public String showdac(Model map) {
+		System.out.println("in manage student");
+		map.addAttribute("dac", studentService.listDAC());
+		return "/student/dac";// Handler(UserController) --> LVN --> D.S
+		// V.R : AVN : /WEB-INF/views/user/login.jsp
+	}
 	
+	@GetMapping("/dbda")
+	// In HandlerMapping bean :
+	// key : /user/login+method=GET
+	// value : com.app.controller.UserController.showLoginForm
+	public String showdbda(Model map) {
+		System.out.println("in manage student");
+		map.addAttribute("dbda", studentService.listDBDA());
+		return "/student/dbda";// Handler(UserController) --> LVN --> D.S
+		// V.R : AVN : /WEB-INF/views/user/login.jsp
+	}
+	@GetMapping("/dtiss")
+	// In HandlerMapping bean :
+	// key : /user/login+method=GET
+	// value : com.app.controller.UserController.showLoginForm
+	public String showdtiss(Model map) {
+		System.out.println("in manage student");
+		map.addAttribute("dtiss", studentService.listDTISS());
+		return "/student/dtiss";// Handler(UserController) --> LVN --> D.S
+		// V.R : AVN : /WEB-INF/views/user/login.jsp
+	}
 	
+	@GetMapping("/welcome")
+	// In HandlerMapping bean :
+	// key : /user/login+method=GET
+	// value : com.app.controller.UserController.showLoginForm
+	public String showWelcomeForm() {
+		System.out.println("in show login form");
+		return "/student/welcome";// Handler(UserController) --> LVN --> D.S
+		// V.R : AVN : /WEB-INF/views/user/login.jsp
+	}
 	//add request handling method to log out user
 	@GetMapping("/logout")
 	public String logOut(HttpSession session,Model map,HttpServletResponse resp,HttpServletRequest request)

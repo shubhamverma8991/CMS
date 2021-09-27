@@ -17,36 +17,25 @@
 		</tr>
 	</table>
 	<hr>
-	
-	<h2 align="center">Welcome Viewer : ${Session.user_details}</h2>
-		<h3 align="center">Course List</h3>
-	<h4  align="center" >
-		<a href="dac">DAC</a>
-	</h4>
-	<h4  align="center" >
-		<a href="dbda">DBDA</a>
-		</h4>
-	<h4  align="center" >
-		<a href="dtiss">DTISS</a>
-	</h4>
-	<h4 align="center">
-		<a href="logout">logout </a>
-	</h4>
-	
-	<!-- <table style="background-color: lightgrey; margin: auto;"> -->
+	 <table style="background-color: lightgrey; margin: auto;"> 
 
-		<!-- <tr>
-			<th>ID</th>
-			<th>Course Name</th>
-		</tr> -->
-		<%-- <c:forEach var="v" items="${requestScope.course}">
+		 <tr>
+			<th>ID </th>
+			<th>Course</th>
+			<th>Subject Name</th>
+			<th>Update</th>
+			<th>Delete</th>
+		</tr>
+		 <c:forEach var="v" items="${requestScope.course}">
 			<tr>
 				<td>${v.id}</td>
 				<td>${v.course}</td>
-				<td><a href="<spring:url value='/admin/update?vid=${v.id}'/>">Update</a></td>
-				<td><a href="<spring:url value='/admin/delete?vid=${v.id}'/>">Delete</a></td>
-			</tr>
-		</c:forEach> --%>
+				<td>${v.subjectname}</td>
+				<td><a href="<spring:url value='/admin/updatecourse?vid=${v.id}'/>">Update</a></td>
+				<td><a href="<spring:url value='/admin/deletecourse?vid=${v.id}'/>">Delete</a></td>
+			
+				</tr>
+		</c:forEach> 
 
 
 		<%-- <tr>
@@ -58,8 +47,12 @@
 		</tr>--%>
 		<!-- <tr> 
 			<td><input type="submit" value="Choose" /></td>
-		</tr>
-	</table> -->
+		</tr>-->
+	</table> 
+	<h4 align="center">
+		
+	<a href="courseadd">Add new Course</a>
+	</h4>
 
 </body>
 </html>

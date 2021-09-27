@@ -8,7 +8,29 @@ import com.app.pojos.Student;
 public interface IStudentService {
 	// add a method for user validation
 	Student validateUser(String email, String pass);
+
 	void saveFaculty(Student student);
+
 	List<CourseTable> listAll();
-	//User saveFaculty(User u);
+
+	
+
+	String updateStudentDetails(Student student);
+
+	String deleteStudentDetails(int id);
+
+	List<CourseTable> listDAC();
+
+	List<CourseTable> listDBDA();
+
+	List<CourseTable> listDTISS();
+
+	Student getStudentDetails(int id);
+	
+	String updateCourseDetails(CourseTable user);
+	CourseTable getCourseDetails(int vid);
+
+	String deleteCourseDetails(int vid);
+
+	// User saveFaculty(User u);
 }

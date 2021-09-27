@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Course List</title>
+<title>DAC List</title>
 </head>
 <body>
 <table style="width: 100%">
@@ -17,36 +17,20 @@
 		</tr>
 	</table>
 	<hr>
-	
-	<h2 align="center">Welcome Viewer : ${Session.user_details}</h2>
-		<h3 align="center">Course List</h3>
-	<h4  align="center" >
-		<a href="dac">DAC</a>
-	</h4>
-	<h4  align="center" >
-		<a href="dbda">DBDA</a>
-		</h4>
-	<h4  align="center" >
-		<a href="dtiss">DTISS</a>
-	</h4>
-	<h4 align="center">
-		<a href="logout">logout </a>
-	</h4>
-	
-	<!-- <table style="background-color: lightgrey; margin: auto;"> -->
+	 <table style="background-color: lightgrey; margin: auto;"> 
 
-		<!-- <tr>
+		 <tr>
 			<th>ID</th>
-			<th>Course Name</th>
-		</tr> -->
-		<%-- <c:forEach var="v" items="${requestScope.course}">
+			<th>Course</th>
+			<th>Subject Name</th>
+		</tr>
+		 <c:forEach var="v" items="${requestScope.dac}">
 			<tr>
 				<td>${v.id}</td>
 				<td>${v.course}</td>
-				<td><a href="<spring:url value='/admin/update?vid=${v.id}'/>">Update</a></td>
-				<td><a href="<spring:url value='/admin/delete?vid=${v.id}'/>">Delete</a></td>
-			</tr>
-		</c:forEach> --%>
+				<td>${v.subjectname}</td>
+				</tr>
+		</c:forEach> 
 
 
 		<%-- <tr>
@@ -58,8 +42,8 @@
 		</tr>--%>
 		<!-- <tr> 
 			<td><input type="submit" value="Choose" /></td>
-		</tr>
-	</table> -->
+		</tr>-->
+	</table> 
 
 </body>
 </html>

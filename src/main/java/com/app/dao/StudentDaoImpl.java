@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.app.pojos.Course;
 import com.app.pojos.CourseTable;
 import com.app.pojos.Student;
 
@@ -66,25 +67,54 @@ public class StudentDaoImpl implements IStudentDao {
 		String jpql="select c from CourseTable c";
 		return manager.createQuery(jpql,CourseTable.class).getResultList();
 	}
+	@Override
+	public Student getStudentDetails(int id) {
+		// TODO Auto-generated method stub
+		return manager.find(Student.class, id);
+	}
+	@Override
+	public String updateStudentDetails(Student student) {
+		Student user=manager.merge(student);
+		return "User Details Updated"+user.getName();
+	}
+	@Override
+	public String deleteStudentDetails(Student user) {
+		manager.remove(user);
+		return "User"+user.getName()+"is deleted";
+	}
+	@Override
+	public List<CourseTable> listDAC() {
+		String jpql="select c from CourseTable c where c.course=:c1";
+		return manager.createQuery(jpql,CourseTable.class).setParameter("c1",Course.DAC).getResultList();
 	
-//	@Override
-//	public int registerUser(User u) {
-//		String sql="insert into users (age, email, experience,gender,name,password,role,sme) values('"+u.getAge()+"',"+u.getEmail()+",'"+u.getExperience()+",'"+u.getGender()+","+u.getName()+",'"+u.getPassword()+",'"+u.getRole()+",'"+u.getSme()+",)";
-//				 manager.createNativeQuery("INSERT INTO users (age, email, experience,gender,name,password,role,sme,contactno) VALUES (?,?,?,?,?,?,?,?,?)")
-//	      .setParameter(1, u.getAge())
-//	      .setParameter(2, u.getEmail())
-//	      .setParameter(3, u.getExperience())
-//	      .setParameter(4, u.getGender())
-//	      .setParameter(5, u.getName())
-//	      .setParameter(6, u.getPassword())
-//	      .setParameter(7, u.getRole())
-//	      .setParameter(8, u.getSme())
-//	      .setParameter(9, u.getContactno())
-//	      .executeUpdate();
-//				int statusCode = (Integer) mgr.getCurrentSession().save(u);
-//		if (statusCode > 0)
-//			return "User registered";
-//		return "User registered ";
-//	
+	}
+	@Override
+	public List<CourseTable> listDBDA() {
+		String jpql="select c from CourseTable c where c.course=:c1";
+		return manager.createQuery(jpql,CourseTable.class).setParameter("c1",Course.DBDA).getResultList();
+	
+	}
+	@Override
+	public List<CourseTable> listDTISS() {
+		String jpql="select c from CourseTable c where c.course=:c1";
+		return manager.createQuery(jpql,CourseTable.class).setParameter("c1",Course.DTISS).getResultList();
+	
+	}
+	@Override
+	public String updateCourseDetails(CourseTable user) {
+		CourseTable course=manager.merge(user);
+		return "User Details Updated"+course.getSubjectname();
+	}
+	@Override
+	public CourseTable getCourseDetails(int uid) {
+		// TODO Auto-generated method stub
+		return manager.find(CourseTable.class, uid);
+	}
+	@Override
+	public String deleteCourseDetails(CourseTable user) {
+		manager.remove(user);
+		return "User"+user.getSubjectname()+"is deleted";
+	}
+
 
 }

@@ -1,13 +1,17 @@
 package com.app.dao;
 
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.app.pojos.Student;
 import com.app.pojos.User;
+import com.app.pojos.UserRole;
 
 @Repository // to tell SC : following class is a spring bean that contains data access logic + enables exc
 			// translation mechanism
@@ -58,25 +62,33 @@ public class UserDaoImpl implements IUserDao {
 
 		return user;
 	}
+	@Override
+	public List<User> listFaculty() {
+		String jpql="select u from User u where u.role=:r1";
+		return manager.createQuery(jpql, User.class).setParameter("r1",UserRole.FACULTY).getResultList();
+	}
+	@Override
+	public List<Student> listStudent() {
+		String jpql="select u from Student u";
+		return manager.createQuery(jpql, Student.class).getResultList();
 	
-//	@Override
-//	public int registerUser(User u) {
-//		String sql="insert into users (age, email, experience,gender,name,password,role,sme) values('"+u.getAge()+"',"+u.getEmail()+",'"+u.getExperience()+",'"+u.getGender()+","+u.getName()+",'"+u.getPassword()+",'"+u.getRole()+",'"+u.getSme()+",)";
-//				 manager.createNativeQuery("INSERT INTO users (age, email, experience,gender,name,password,role,sme,contactno) VALUES (?,?,?,?,?,?,?,?,?)")
-//	      .setParameter(1, u.getAge())
-//	      .setParameter(2, u.getEmail())
-//	      .setParameter(3, u.getExperience())
-//	      .setParameter(4, u.getGender())
-//	      .setParameter(5, u.getName())
-//	      .setParameter(6, u.getPassword())
-//	      .setParameter(7, u.getRole())
-//	      .setParameter(8, u.getSme())
-//	      .setParameter(9, u.getContactno())
-//	      .executeUpdate();
-//				int statusCode = (Integer) mgr.getCurrentSession().save(u);
-//		if (statusCode > 0)
-//			return "User registered";
-//		return "User registered ";
-//	
+	}
+	@Override
+	public User getFacultyDetails(int id) {
+		// TODO Auto-generated method stub
+		return manager.find(User.class, id);
+	}
+	@Override
+	public String updateFacultyDetails(User u) {
+		User user=manager.merge(u);
+		return "User Details Updated"+user.getName();
+	}
+	@Override
+	public String deleteFacultyDetails(User user) {
+		manager.remove(user);
+		return "User"+user.getName()+"is deleted";
+	}
+	
+	
 
 }
