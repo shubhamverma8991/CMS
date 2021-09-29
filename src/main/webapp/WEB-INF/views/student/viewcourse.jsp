@@ -9,11 +9,12 @@
 <meta charset="ISO-8859-1">
 <title>Course List</title>
 </head>
+<%@ include file="../../../jsp/headerstudent.jsp" %>
 <body>
 <table style="width: 100%">
 		<tr>
 			<th align="left"><a href="welcome">Back</a></th>
-			<th align="right" ><a href="logout">Logout</a></th>
+			
 		</tr>
 	</table>
 	<hr>
@@ -29,9 +30,7 @@
 	<h4  align="center" >
 		<a href="dtiss">DTISS</a>
 	</h4>
-	<h4 align="center">
-		<a href="logout">logout </a>
-	</h4>
+	
 	
 	<!-- <table style="background-color: lightgrey; margin: auto;"> -->
 

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.app.dao.IStudentDao;
 import com.app.pojos.CourseTable;
 import com.app.pojos.Student;
-import com.app.pojos.User;
+import com.app.pojos.StudentNotice;
 import com.app.repositories.userrepositories;
 
 @Service // => spring bean class containing B.L
@@ -102,5 +102,11 @@ public class StudentServiceImpl implements IStudentService {
 			return studentDao.deleteCourseDetails(user);
 		return "User Details Deletion Failed : invalid User";
 	
+	}
+
+	@Override
+	public List<StudentNotice> listnotice() {
+		// TODO Auto-generated method stub
+		return studentDao.listnotice();
 	}
 }

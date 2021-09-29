@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.app.pojos.CourseTable;
 import com.app.pojos.Student;
+import com.app.pojos.StudentNotice;
 
 public interface IStudentDao {
 //add a method for user validation
@@ -33,4 +34,6 @@ public interface IStudentDao {
 	String updateCourseDetails(CourseTable user);
 
 	String deleteCourseDetails(CourseTable user);
+
+	List<StudentNotice> listnotice();
 }

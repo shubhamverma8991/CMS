@@ -8,7 +8,10 @@
 <meta charset="ISO-8859-1">
 <title>Register Faculty</title>
 </head>
+<%@ include file="../../../jsp/headerfaculty.jsp" %>
 <body>
+
+<h5 align="center" style="color: green;">${message}</h5>
 	<div class="container" align="center">
 		<h1>Faculty Register Form:</h1>
 		<div class="card">

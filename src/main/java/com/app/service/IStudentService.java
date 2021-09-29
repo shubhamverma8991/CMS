@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.app.pojos.CourseTable;
 import com.app.pojos.Student;
+import com.app.pojos.StudentNotice;
 
 public interface IStudentService {
 	// add a method for user validation
@@ -31,6 +32,10 @@ public interface IStudentService {
 	CourseTable getCourseDetails(int vid);
 
 	String deleteCourseDetails(int vid);
+
+	List<StudentNotice> listnotice();
+
+	
 
 	// User saveFaculty(User u);
 }

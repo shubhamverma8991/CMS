@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h5>Hello , ${requestScope.user_dtls.name}</h5>
-	<h6>You have logged out, will be auto taken to the home page
-		shortly....</h6>
+<div align="center">
+	<h3>Hello , ${requestScope.user_dtls.name}</h3>
+	<h4>You have logged out, will be auto taken to the home page
+		shortly....</h4>
+		</div>
 </body>
 </html>

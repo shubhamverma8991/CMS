@@ -1,0 +1,9 @@
+@charset "ISO-8859-1";
+
+.yourclassname
+{
+width: 100px;
+height: 100px;
+background-size:cover;
+background-repeat:no-repeat;
+}

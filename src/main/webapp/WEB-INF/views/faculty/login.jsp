@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
 <title>Faculty Login</title>
 </head>
 <body>
+<h5 align="center" style="color: red;">${message}</h5>
 	<%--Form will be submitted to the def action /user/login --%>
 	<h1 align="center">Faculty Login</h1>
 	<br>
@@ -33,7 +34,7 @@
 		</button>
 		<!-- <input  type="submit" value="Login" /> -->
 		&emsp;
-	<a href="register">Register new User</a>
+	<a href="register">Register new Faculty</a>
 	</h5>
 	
 	</form>

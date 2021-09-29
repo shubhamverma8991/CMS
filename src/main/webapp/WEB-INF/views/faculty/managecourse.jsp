@@ -6,36 +6,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/bootstrap.min.js"></script>
+
 <meta charset="ISO-8859-1">
-<title>Course List</title>
+<title>Course</title>
 </head>
+<%@ include file="../../../jsp/headerfaculty.jsp" %>
 <body>
-<table style="width: 100%">
+<h5 align="center" style="color: red;">${message}</h5>
+	<table style="width: 100%">
 		<tr>
 			<th align="left"><a href="welcome">Back</a></th>
-			<th align="right" ><a href="logout">Logout</a></th>
+			
 		</tr>
+		
 	</table>
 	<hr>
-	 <table style="background-color: lightgrey; margin: auto;"> 
+	<div class="container">
+	<h2>Course List</h2>
+	<table class="table">
 
-		 <tr>
-			<th>ID </th>
+		<tr>
+			<th>ID no</th>
 			<th>Course</th>
 			<th>Subject Name</th>
 			<th>Update</th>
 			<th>Delete</th>
 		</tr>
-		 <c:forEach var="v" items="${requestScope.course}">
+		<c:forEach var="v" items="${requestScope.course}">
 			<tr>
 				<td>${v.id}</td>
 				<td>${v.course}</td>
 				<td>${v.subjectname}</td>
-				<td><a href="<spring:url value='/admin/updatecourse?vid=${v.id}'/>">Update</a></td>
-				<td><a href="<spring:url value='/admin/deletecourse?vid=${v.id}'/>">Delete</a></td>
-			
-				</tr>
-		</c:forEach> 
+				<td><a
+					href="<spring:url value='/admin/updatecourse?vid=${v.id}'/>">Update</a></td>
+				<td><a
+					href="<spring:url value='/admin/deletecourse?vid=${v.id}'/>">Delete</a></td>
+
+			</tr>
+		</c:forEach>
 
 
 		<%-- <tr>
@@ -48,10 +58,11 @@
 		<!-- <tr> 
 			<td><input type="submit" value="Choose" /></td>
 		</tr>-->
-	</table> 
+	</table>
+</div>
 	<h4 align="center">
-		
-	<a href="courseadd">Add new Course</a>
+
+		<a href="courseadd">Add new Course</a>
 	</h4>
 
 </body>

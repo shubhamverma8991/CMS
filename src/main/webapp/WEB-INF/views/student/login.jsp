@@ -3,13 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="../css/bootstrap.min.css">         
+<script src="../js/bootstrap.min.js"></script>  
+
 <meta charset="UTF-8">
 <title>Student Login</title>
 </head>
 <body>
+<h5 align="center" style="color: red;">${message}</h5>
 	<%--Form will be submitted to the def action /user/login --%>
 	<h1 align="center">Student Login</h1>
-	</br>
+	<br>
+	<div class="container">
 	<form method="post">
 		<table style=" margin: auto ;with:80%">
 			<tr>
@@ -22,12 +27,14 @@
 			</tr>
 		</table>
 		<h5 align="center">
-		<input  type="submit" value="Login" />
+		<button type="submit" class="btn btn-info" value ="Login">Login
+		</button>
+		<!-- <input  type="submit" value="Login" /> -->
 		&emsp;
-	<a href="register">Register new User</a>
+	<a href="register">Register new Student</a>
 	</h5>
 	
 	</form>
-
+</div>
 </body>
 </html>

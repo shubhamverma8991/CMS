@@ -8,11 +8,12 @@
 <meta charset="ISO-8859-1">
 <title>Course Add</title>
 </head>
+<%@ include file="../../../jsp/headerfaculty.jsp" %>
 <body>
 <table style="width: 100%">
 		<tr>
 			<th align="left"><a href="welcome">Back</a></th>
-			<th align="right" ><a href="logout">Logout</a></th>
+			
 		</tr>
 	</table>
 	<hr>

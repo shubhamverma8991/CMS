@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.app.pojos.CourseTable;
+import com.app.pojos.FacultyNotice;
+import com.app.pojos.Schedule;
 import com.app.pojos.Student;
+import com.app.pojos.StudentNotice;
 import com.app.pojos.User;
 import com.app.pojos.UserRole;
 import com.app.service.IStudentService;
@@ -225,6 +228,44 @@ public class AdminController {
 			// V.R : AVN : /WEB-INF/views/user/login.jsp
 		}
 
+		@GetMapping("/addnotice")
+		public String showNoticeForm(Model model) {
+			return "/admin/addnotice";
+		}
+
+		@PostMapping(path = "/addnotice", consumes = "application/x-www-form-urlencoded")
+		public String saveNotice(final FacultyNotice u) {
+			// userDao.registerUser(u);
+			userService.saveNotice(u);
+			return "/admin/addnotice";
+		}
+		
+		@GetMapping("/addnoticestudent")
+		public String showStudentNoticeForm(Model model) {
+			return "/admin/addnoticestudent";
+		}
+
+		@PostMapping(path = "/addnoticestudent", consumes = "application/x-www-form-urlencoded")
+		public String saveStudentNotice(final StudentNotice u) {
+			// userDao.registerUser(u);
+			userService.saveNoticestudent(u);
+			return "/admin/addnoticestudent";
+		}
+		
+		@GetMapping("/addschedule")
+		public String showScheduleForm(Model model) {
+			return "/admin/addschedule";
+		}
+
+		@PostMapping(path = "/addschedule", consumes = "application/x-www-form-urlencoded")
+		public String saveFaculty(final Schedule u) {
+			// userDao.registerUser(u);
+			userService.saveSchedule(u);
+			return "/admin/addschedule";
+		}
+		
+		
+		
 	// add request handling method to log out user
 	@GetMapping("/logout")
 	public String logOut(HttpSession session, Model map, HttpServletResponse resp, HttpServletRequest request) {

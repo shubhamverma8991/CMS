@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.app.pojos.CourseTable;
+import com.app.pojos.StudentNotice;
 //import com.app.dao.IUserDao;
 import com.app.pojos.User;
 import com.app.pojos.UserRole;
@@ -92,9 +93,10 @@ public class FacultyController {
 	}
 
 	@PostMapping(path = "/register", consumes = "application/x-www-form-urlencoded")
-	public String saveFaculty(final User u) {
+	public String saveFaculty(final User u,Model map) {
 		// userDao.registerUser(u);
 		userService.saveFaculty(u);
+		map.addAttribute("message", "Succesfully Registered");
 		return "/faculty/register";
 	}
 
@@ -179,6 +181,35 @@ public class FacultyController {
 		return "/faculty/welcome";// Handler(UserController) --> LVN --> D.S
 		// V.R : AVN : /WEB-INF/views/user/login.jsp
 	}
+	
+	@GetMapping("/addnoticestudent")
+	public String showStudentNoticeForm(Model model) {
+		return "/faculty/addnoticestudent";
+	}
+
+	@PostMapping(path = "/addnoticestudent", consumes = "application/x-www-form-urlencoded")
+	public String saveStudentNotice(final StudentNotice u) {
+		// userDao.registerUser(u);
+		userService.saveNoticestudent(u);
+		return "/faculty/addnoticestudent";
+	}
+	
+	@GetMapping("/viewnotice")
+	public String showNotice(Model map) {
+		System.out.println("in show course list");
+		map.addAttribute("facultynotice", userService.listnotice());
+		System.out.println(userService.listnotice());
+		return "/faculty/viewnotice";
+	}
+	
+	@GetMapping("/viewschedule")
+	public String showSchedule(Model map) {
+		System.out.println("in show course list");
+		map.addAttribute("schedule", userService.listschedule());
+		System.out.println(userService.listschedule());
+		return "/faculty/viewschedule";
+	}
+	
 	// add request handling method to log out user
 	@GetMapping("/logout")
 	public String logOut(HttpSession session, Model map, HttpServletResponse resp, HttpServletRequest request) {

@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 <script src="../js/bootstrap.min.js"></script>
 
 <meta charset="ISO-8859-1">
-<title>DTISS List</title>
+<title>Schedule</title>
 </head>
 <%@ include file="../../../jsp/headerstudent.jsp" %>
 <body>
@@ -21,33 +21,30 @@
 		</tr>
 	</table>
 	<hr>
-	 <div class="container">
-	<h3 align="center">DTISS</h3>
-	  <table class="table"> 
+	<div class="container">
+	<h2 align="center">Schedule</h2>
+	 <table class="table"> 
+
 		 <tr>
-			<th>ID</th>
+			
 			<th>Course</th>
-			<th>Subject Name</th>
+			<th>Subject</th>
+			<th>Faculty</th>
+			<th>Venue</th>
+			<th>Timing</th>
+			<th>Date</th>
 		</tr>
-		 <c:forEach var="v" items="${requestScope.dtiss}">
+		 <c:forEach var="v" items="${requestScope.schedule}">
 			<tr>
-				<td>${v.id}</td>
+				
 				<td>${v.course}</td>
-				<td>${v.subjectname}</td>
+				<td>${v.subject}</td>
+				<td>${v.faculty}</td>
+				<td>${v.venue}</td>
+				<td>${v.timing}</td>
+				<td>${v.date}</td>
 				</tr>
 		</c:forEach> 
-
-
-		<%-- <tr>
-			<c:forEach var="v" items="${requestScope.course}">
-				<li>${v.course}<input type="radio" name="course" value="ID" /><br>
-					<br>
-				</li>
-			</c:forEach>
-		</tr>--%>
-		<!-- <tr> 
-			<td><input type="submit" value="Choose" /></td>
-		</tr>-->
 	</table> 
 </div>
 </body>

@@ -8,8 +8,9 @@
 <meta charset="ISO-8859-1">
 <title>Update Course</title>
 </head>
+<%@ include file="../../../jsp/headerfaculty.jsp" %>
 <body>
-<h5 align="center" style="color: red;">${requestScope.message}</h5>
+<h5 align="center" style="color: blue;">${message}</h5>
 	<form:form  method="post" modelAttribute="course">
 		<table style="background-color: lightgrey; margin: auto;">
 		<tr>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.pojos.Student;
 import com.app.service.IStudentService;
+import com.app.service.IUserService;
 
 @Controller // mandatory
 @RequestMapping("/student") // optional
@@ -21,6 +22,8 @@ public class StudentController {
 	// dependency : service layer i/f
 	@Autowired
 	private IStudentService studentService;
+	@Autowired
+	private IUserService userService;
 	
 
 	public StudentController() {
@@ -83,9 +86,10 @@ public class StudentController {
 
 	
 	@PostMapping(path = "/register", consumes = "application/x-www-form-urlencoded")
-    public String saveFaculty(final Student u) {
+    public String saveFaculty(final Student u,Model map) {
 		//userDao.registerUser(u);
 		studentService.saveFaculty(u);
+		map.addAttribute("message", "Succesfully Registered");
         return "/student/register";
     }
 	
@@ -97,6 +101,13 @@ public class StudentController {
 		return "/student/viewcourse";
 	}
 	
+	@GetMapping("/viewnotice")
+	public String showNotice(Model map) {
+		System.out.println("in show course list");
+		map.addAttribute("studentnotice", studentService.listnotice());
+		System.out.println(studentService.listnotice());
+		return "/student/viewnotice";
+	}
 	
 
 	@GetMapping("/dac")
@@ -139,6 +150,16 @@ public class StudentController {
 		System.out.println("in show login form");
 		return "/student/welcome";// Handler(UserController) --> LVN --> D.S
 		// V.R : AVN : /WEB-INF/views/user/login.jsp
+	}
+	
+	
+
+	@GetMapping("/viewschedule")
+	public String showSchedule(Model map) {
+		System.out.println("in show course list");
+		map.addAttribute("schedule", userService.listschedule());
+		System.out.println(userService.listschedule());
+		return "/student/viewschedule";
 	}
 	//add request handling method to log out user
 	@GetMapping("/logout")

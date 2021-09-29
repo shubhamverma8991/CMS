@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.app.pojos.Course;
 import com.app.pojos.CourseTable;
 import com.app.pojos.Student;
+import com.app.pojos.StudentNotice;
 
 @Repository // to tell SC : following class is a spring bean that contains data access logic + enables exc
 			// translation mechanism
@@ -75,12 +76,12 @@ public class StudentDaoImpl implements IStudentDao {
 	@Override
 	public String updateStudentDetails(Student student) {
 		Student user=manager.merge(student);
-		return "User Details Updated"+user.getName();
+		return user.getName()+" Details Updated";
 	}
 	@Override
 	public String deleteStudentDetails(Student user) {
 		manager.remove(user);
-		return "User"+user.getName()+"is deleted";
+		return "User "+user.getName()+" is deleted";
 	}
 	@Override
 	public List<CourseTable> listDAC() {
@@ -103,7 +104,7 @@ public class StudentDaoImpl implements IStudentDao {
 	@Override
 	public String updateCourseDetails(CourseTable user) {
 		CourseTable course=manager.merge(user);
-		return "User Details Updated"+course.getSubjectname();
+		return "Details Updated "+course.getSubjectname();
 	}
 	@Override
 	public CourseTable getCourseDetails(int uid) {
@@ -113,7 +114,13 @@ public class StudentDaoImpl implements IStudentDao {
 	@Override
 	public String deleteCourseDetails(CourseTable user) {
 		manager.remove(user);
-		return "User"+user.getSubjectname()+"is deleted";
+		return "Subject "+user.getSubjectname()+" is deleted";
+	}
+	@Override
+	public List<StudentNotice> listnotice() {
+		String jpql="select c from StudentNotice c ";
+		return manager.createQuery(jpql,StudentNotice.class).getResultList();
+	
 	}
 
 

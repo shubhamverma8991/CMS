@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../css/bootstrap.min.css">         
 <script src="../js/bootstrap.min.js"></script>   
 <meta charset="ISO-8859-1">
-<title>Course Add</title>
+<title>Add Notice Student</title>
 </head>
 <%@ include file="../../../jsp/header.jsp" %>
 <body>
@@ -15,27 +15,35 @@
 			<th align="left"><a href="welcome">Back</a></th>
 			
 		</tr>
+		
 	</table>
-	<hr>
 	<div class="container" align="center">
-		<h1>Course Add</h1>
+		<h1>Add Notice For Student</h1>
 		<div class="card">
 			<div class="card-body">
-				<form action="#" th:action="@{/addcourse}" method="POST">
+				<form action="#" th:action="@{/addnoticestudent}" method="POST">
 
 					<div class="form-group row">
-						<label for="course" class="col-sm-2 col-form-label"> Course Name</label>
+						<label for="date" class="col-sm-2 col-form-label">Notice Date</label>
 						<div class="col-sm-7">
-							<input type="text" class="form-control" name="course"
-								placeholder="Enter Course Name">
+							<input type="date" class="form-control" name="date"
+								placeholder="Enter Date">
 						</div>
 					</div>
 
 					<div class="form-group row">
-						<label for="subjectname" class="col-sm-2 col-form-label">Subject</label>
+						<label for="topic" class="col-sm-2 col-form-label">Topic</label>
 						<div class="col-sm-7">
-							<input type="text" class="form-control" name="subjectname"
-								placeholder="Enter Subject">
+							<input type="text" class="form-control" name="topic"
+								placeholder="Enter Topic">
+						</div>
+					</div>
+
+					<div class=" form-group row">
+						<label for="description" class="col-sm-2 col-form-label">Desciption </label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" name="description"
+								placeholder="Enter Description">
 						</div>
 					</div>
 

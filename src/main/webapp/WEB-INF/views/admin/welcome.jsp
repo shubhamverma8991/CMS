@@ -1,20 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Admin</title>
 </head>
+<%@ include file="../../../jsp/header.jsp" %>
 <body>
 
-	<table style="width: 100%">
-		<tr>
-			<!-- <th align="left"><a href="welcome">Back</a></th> -->
-			<th align="right"><a href="logout">Logout</a></th>
-		</tr>
-	</table>
-	<hr>
+	<br>
+	<br>
 
 	<h1 align="center">Welcome Admin : ${user_details.name}</h1>
 	<h3 align="center">
@@ -26,7 +22,17 @@
 	<h3 align="center">
 		<li><a href="managecourse">Manage Course</a></li>
 	</h3>
-	<hr>
-
+	<h3 align="center">
+		<li><a href="addnotice">Add Faculty Notice</a></li>
+	</h3>
+	<h3 align="center">
+		<li><a href="addnoticestudent">Add Student Notice</a></li>
+	</h3>
+	<h3 align="center">
+		<li><a href="addschedule">Add Schedule</a></li>
+	</h3>
+	
+<br>
 </body>
+<%@ include file="../../../jsp/footer.jsp" %>
 </html>

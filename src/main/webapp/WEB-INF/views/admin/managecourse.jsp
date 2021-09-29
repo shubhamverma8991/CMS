@@ -12,54 +12,50 @@
 <meta charset="ISO-8859-1">
 <title>Course</title>
 </head>
+<%@ include file="../../../jsp/header.jsp"%>
 <body>
-	<table style="width: 100%">
-		<tr>
-			<th align="left"><a href="welcome">Back</a></th>
-			<th align="right" ><a href="logout">Logout</a></th>
-		</tr>
-	</table>
-	<hr>
-	<h2>Course List</h2>
-	<table class="table">
+<h5 align="center" style="color: red;">${message}</h5>
+	<div class="container">
+		<h2>Course List</h2>
+		<table class="table">
 
-		<tr>
-			<th>ID no</th>
-			<th>Course</th>
-			<th>Subject Name</th>
-			<th>Update</th>
-			<th>Delete</th>
-		</tr>
-		<c:forEach var="v" items="${requestScope.course}">
 			<tr>
-				<td>${v.id}</td>
-				<td>${v.course}</td>
-				<td>${v.subjectname}</td>
-				<td><a
-					href="<spring:url value='/admin/updatecourse?vid=${v.id}'/>">Update</a></td>
-				<td><a
-					href="<spring:url value='/admin/deletecourse?vid=${v.id}'/>">Delete</a></td>
-
+				<th>ID no</th>
+				<th>Course</th>
+				<th>Subject Name</th>
+				<th>Update</th>
+				<th>Delete</th>
 			</tr>
-		</c:forEach>
+			<c:forEach var="v" items="${requestScope.course}">
+				<tr>
+					<td>${v.id}</td>
+					<td>${v.course}</td>
+					<td>${v.subjectname}</td>
+					<td><a
+						href="<spring:url value='/admin/updatecourse?vid=${v.id}'/>">Update</a></td>
+					<td><a
+						href="<spring:url value='/admin/deletecourse?vid=${v.id}'/>">Delete</a></td>
+
+				</tr>
+			</c:forEach>
 
 
-		<%-- <tr>
+			<%-- <tr>
 			<c:forEach var="v" items="${requestScope.course}">
 				<li>${v.course}<input type="radio" name="course" value="ID" /><br>
 					<br>
 				</li>
 			</c:forEach>
 		</tr>--%>
-		<!-- <tr> 
+			<!-- <tr> 
 			<td><input type="submit" value="Choose" /></td>
 		</tr>-->
-	</table>
-
+		</table>
+	</div>
 	<h4 align="center">
-
-		<a href="courseadd">Add new Course</a>
+		<a href="welcome">Back</a> &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&emsp; <a href="courseadd">Add new Course</a>
 	</h4>
 
 </body>
+
 </html>

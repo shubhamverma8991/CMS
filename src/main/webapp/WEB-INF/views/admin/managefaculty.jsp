@@ -1,24 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
     
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/bootstrap.min.js"></script>
+
 <meta charset="UTF-8">
 <title>Manage Faculty</title>
 </head>
+<%@ include file="../../../jsp/header.jsp" %>
 <body>
-<table style="width: 100%">
-		<tr>
-		 <th align="left"><a href="welcome">Back</a></th> 
-			<th align="right"><a href="logout">Logout</a></th>
-		</tr>
-	</table>
-	<hr>
-<table style="background-color: lightgrey; margin: auto;">
-		<caption>Faculty List</caption>
+<h5 align="center" style="color: red;">${message}</h5>
+	<div class="container">
+	<h3>Faculty List</h3>
+<table class="table">
+		
 		<tr>
 			<th>Name</th>
 			<th>Email</th>
@@ -42,5 +42,9 @@
 			</tr>
 		</c:forEach>
 	</table>
+	</div>
+	<h4 align="center">
+		<a href="welcome">Back</a> 
+	</h4>
 </body>
 </html>

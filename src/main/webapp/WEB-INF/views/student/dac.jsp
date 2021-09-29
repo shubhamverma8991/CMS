@@ -6,18 +6,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/bootstrap.min.js"></script>
+
 <meta charset="ISO-8859-1">
 <title>DAC List</title>
 </head>
+<%@ include file="../../../jsp/headerstudent.jsp" %>
 <body>
 <table style="width: 100%">
 		<tr>
 			<th align="left"><a href="welcome">Back</a></th>
-			<th align="right" ><a href="logout">Logout</a></th>
+			
 		</tr>
+		
 	</table>
 	<hr>
-	 <table style="background-color: lightgrey; margin: auto;"> 
+	<div class="container">
+	<h3 align="center">DAC</h3>
+	  <table class="table"> 
 
 		 <tr>
 			<th>ID</th>
@@ -44,6 +51,6 @@
 			<td><input type="submit" value="Choose" /></td>
 		</tr>-->
 	</table> 
-
+</div>
 </body>
 </html>

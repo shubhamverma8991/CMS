@@ -9,6 +9,7 @@
 <title>Admin Login</title>
 </head>
 <body>
+<h5 align="center" style="color: red;">${message}</h5>
 	<%--Form will be submitted to the def action /user/login --%>
 	<h1 align="center">Admin Login</h1>
 	<br>

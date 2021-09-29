@@ -9,6 +9,8 @@ import javax.persistence.EntityTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.app.pojos.FacultyNotice;
+import com.app.pojos.Schedule;
 import com.app.pojos.Student;
 import com.app.pojos.User;
 import com.app.pojos.UserRole;
@@ -81,12 +83,25 @@ public class UserDaoImpl implements IUserDao {
 	@Override
 	public String updateFacultyDetails(User u) {
 		User user=manager.merge(u);
-		return "User Details Updated"+user.getName();
+		return user.getName()+" Details Updated";
 	}
 	@Override
 	public String deleteFacultyDetails(User user) {
 		manager.remove(user);
-		return "User"+user.getName()+"is deleted";
+		return "User "+user.getName()+" is deleted";
+	}
+	@Override
+	public List<FacultyNotice> listnotice() {
+		// TODO Auto-generated method stub
+		String jpql="select u from FacultyNotice u";
+		return manager.createQuery(jpql, FacultyNotice.class).getResultList();
+		
+	}
+	@Override
+	public List<Schedule> listschedule() {
+		String jpql="select u from Schedule u";
+		return manager.createQuery(jpql, Schedule.class).getResultList();
+		
 	}
 	
 	

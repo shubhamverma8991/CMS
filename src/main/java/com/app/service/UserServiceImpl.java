@@ -8,7 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.IUserDao;
 import com.app.pojos.CourseTable;
+import com.app.pojos.FacultyNotice;
+import com.app.pojos.Schedule;
 import com.app.pojos.Student;
+import com.app.pojos.StudentNotice;
 import com.app.pojos.User;
 import com.app.repositories.userrepositories;
 
@@ -74,6 +77,36 @@ public class UserServiceImpl implements IUserService {
 	public void saveCourse(CourseTable u) {
 	
 		 this.userRepository.save(u);
+	}
+
+	@Override
+	public void saveNotice(FacultyNotice u) {
+		this.userRepository.save(u);
+		
+	}
+
+	@Override
+	public void saveNoticestudent(StudentNotice u) {
+		this.userRepository.save(u);
+		
+	}
+
+	@Override
+	public List<FacultyNotice> listnotice() {
+		// TODO Auto-generated method stub
+		return userDao.listnotice();
+	}
+
+	@Override
+	public void saveSchedule(Schedule u) {
+		this.userRepository.save(u);
+		
+	}
+
+	@Override
+	public List<Schedule> listschedule() {
+		// TODO Auto-generated method stub
+		return userDao.listschedule();
 	}
 
 	
